@@ -1,3 +1,20 @@
-h1, p {
+h1,
+p {
   font-family: Lato;
+}
+
+.button {
+  border-radius: 10px;
+  background-color: gold;
+  padding: 7px;
+  text-align: center;
+}
+
+h2 {
+  color: blue;
+}
+
+td {
+  color: red;
+  border: solid;
 }

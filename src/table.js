@@ -1,15 +1,23 @@
 import React from 'react';
 import './style.css';
+import ButtonComponent from './button';
 
 export default function TableComponent(props) {
-  const { tableData } = props;
+  const {
+    tableData,
+    tableHeading1,
+    tableHeading2,
+    tableTitle,
+    onRemove
+  } = props;
 
   const tableHeader = () => {
     return (
       <thead>
         <tr>
-          <th>Pet Name</th>
-          <th>Pet Type</th>
+          <th>{tableHeading1}</th>
+          <th>{tableHeading2}</th>
+          <th>Delete</th>
         </tr>
       </thead>
     );
@@ -21,6 +29,10 @@ export default function TableComponent(props) {
         <tr key={index}>
           <td>{row.name}</td>
           <td>{row.type}</td>
+          <td>
+            {' '}
+            <ButtonComponent clickAction={() => onRemove(index)} />
+          </td>
         </tr>
       );
     });
@@ -28,14 +40,8 @@ export default function TableComponent(props) {
   };
 
   return (
-    // <thead>
-    //   <tr>
-    //     <th>Pet Name</th>
-    //     <th>Pet Type</th>
-    //   </tr>
-    // </thead>
-
     <div>
+      <h2>{tableTitle}</h2>
       <table>
         {tableHeader()}
         {tableBody()}
